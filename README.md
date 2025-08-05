@@ -1,0 +1,1 @@
+# AI-OMS-C_01_Kawaii_Kollections
