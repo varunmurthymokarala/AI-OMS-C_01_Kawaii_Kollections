@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Hero.css'
 import hand_icon from '../Assets/hand_icon.png'
 import arrow_icon from '../Assets/arrow.png'
 import hero_image from '../Assets/hero3_img.png'
 
+import hero_image1 from '../Assets/product_14.1.png'
+import hero_image2 from '../Assets/product_25.1.png'
+import hero_image3 from '../Assets/product_6.1.png'
+import hero_image4 from '../Assets/product_16.1.png'
+import hero_image5 from '../Assets/product_9.1.png'
+
 const Hero = () => {
+const images = [hero_image1, hero_image2, hero_image3, hero_image4, hero_image5]
+  const [currentIndex, setCurrentIndex] = useState(0)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+    }, 3000) // change image every 3 seconds
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className='hero'>
         <div className="hero-left">
@@ -22,8 +37,14 @@ const Hero = () => {
                 <img src={arrow_icon} alt="" />
             </div>
         </div>
-        <div className="hero-right"></div>
-        <img src={hero_image} alt="" />
+        <div className="hero-right">
+            <img
+                src={images[currentIndex]} 
+                alt="sliderImages"
+                className="hero-slide-img"
+                 />
+        </div>
+        
 
     </div>
   )
