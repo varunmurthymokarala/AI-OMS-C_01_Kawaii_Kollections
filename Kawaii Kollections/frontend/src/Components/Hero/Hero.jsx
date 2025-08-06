@@ -4,11 +4,11 @@ import hand_icon from '../Assets/hand_icon.png'
 import arrow_icon from '../Assets/arrow.png'
 import hero_image from '../Assets/hero3_img.png'
 
-import hero_image1 from '../Assets/product_14.1.png'
-import hero_image2 from '../Assets/product_25.1.png'
-import hero_image3 from '../Assets/product_6.1.png'
-import hero_image4 from '../Assets/product_16.1.png'
-import hero_image5 from '../Assets/product_9.1.png'
+import hero_image1 from '../Assets/product_7.1.1.png'
+import hero_image2 from '../Assets/product_25.1.1.png'
+import hero_image3 from '../Assets/product_6.1.1.png'
+import hero_image4 from '../Assets/product_32.1.1.png'
+import hero_image5 from '../Assets/product_29.1.1.png'
 
 const Hero = () => {
 const images = [hero_image1, hero_image2, hero_image3, hero_image4, hero_image5]
@@ -16,7 +16,7 @@ const images = [hero_image1, hero_image2, hero_image3, hero_image4, hero_image5]
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 3000) // change image every 3 seconds
+    }, 2500) // change image every 3 seconds
     return () => clearInterval(interval)
   }, [])
 
