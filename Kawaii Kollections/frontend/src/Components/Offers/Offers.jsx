@@ -1,6 +1,6 @@
 import React from 'react'
 import './Offers.css'; // Assuming you have a CSS file for styling
-import exclusive_image from '../Assets/exclusive_image.1.png'; // Adjust the path as necessary
+import exclusive_image from '../Assets/exclusive_image.2.1.png'; // Adjust the path as necessary
 
 const Offers = () => {
   return (
