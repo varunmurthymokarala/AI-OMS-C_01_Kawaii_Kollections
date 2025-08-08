@@ -75,12 +75,24 @@ height: 700px;
     font-size: 16px;
     font-weight: 600;
     color: white;
-    background: #FF4141;
+    background: #e20909;
     margin-bottom: 40px;
     border: none;
-    outline: none;
+    outline: none;  
     cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease; /* smooth feedback */
 }
+/* Hover effect */
+.productdisplay-right button:hover {
+    background: #b70707; /* slightly darker red */
+}
+
+/* Pressed effect */
+.productdisplay-right button:active {
+    transform: scale(0.96); /* subtle press shrink */
+    background: #990606; /* even darker red */
+}
+
 .productdisplay-category{
     margin-top: 10px;
 }

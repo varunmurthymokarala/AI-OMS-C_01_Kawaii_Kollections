@@ -33,9 +33,14 @@ function App() {
           <Route path="/mens" element={<Shopcategory category="men" />} />
           <Route path="/womens" element={<Shopcategory category="women" />} />
           <Route path="/kids" element={<Shopcategory  category="kid" />} />
-          <Route path="product" element={<Product/>} >
-            <Route path=':productId' element={<Product/>} />
-          </Route>
+
+           {/* NEW: subcategory paths (optional) */}
+          <Route path="/mens/:sub" element={<Shopcategory category="men" />} />
+          <Route path="/womens/:sub" element={<Shopcategory category="women" />} />
+          <Route path="/kids/:sub" element={<Shopcategory category="kid" />} />
+          
+          <Route path="/product/:productId" element={<Product />} />
+
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<LoginSignup/>}/> 
         </Routes>
