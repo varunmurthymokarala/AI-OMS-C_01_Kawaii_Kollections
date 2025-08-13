@@ -1,110 +1,201 @@
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
-}
-.nav-logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-}
-.nav-logo p{
-    color: blueviolet;
-    font-size: 36px;
-    font-weight: 600;
-}
-.nav-menu{
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    list-style: none;
-    color: brown;
-    font-size: 20px;
-    font-weight: 500;
-}
-.nav-menu li{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3px;
-    cursor: pointer;
-}
-.nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background-color: red;
-}
-.nav-login-cart{
-    display: flex;
-    align-items: center;
-    gap: 45px;
-}
-.nav-login-cart button{
-    height: 58px;
-    width: 157px;
-    outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 75px;
-    color: #515151;
-    font-size: 20px;
-    font-weight: 500;
-    background: white;
-    cursor: pointer;
-}
+    .navbar{
+        display: flex;
+        justify-content: space-around;
+        padding: 16px;
+        box-shadow: 0 1px 3px -2px black;
+    }
+    .nav-logo{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+    }
+    .nav-logo p{
+        color: blueviolet;
+        font-size: 36px;
+        font-weight: 600;
+    }
+    .nav-menu{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        list-style: none;
+        color: brown;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .nav-menu li{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+        cursor: pointer;
+    }
+    .nav-menu hr{
+        border: none;
+        width: 80%;
+        height: 3px;
+        border-radius: 10px;
+        background-color: red;
+    }
+    .nav-login-cart{
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+    .nav-login-cart button{
+        height: 58px;
+        width: 157px;
+        outline: none;
+        border: 1px solid #7a7a7a;
+        border-radius: 75px;
+        color: #515151;
+        font-size: 20px;
+        font-weight: 500;
+        background: white;
+        cursor: pointer;
+    }
 
-.nav-login-cart button:active{
-    background: #f3f3f3;
-}
-.nav-cart-count{
-    width: 22px;
-    height: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -35px;
-    margin-left: -55px;
-    border-radius: 11px;
-    font-size: 14px;
-    background: red;
-    color: white;
-}
+    .nav-login-cart button:active{
+        background: #f3f3f3;
+    }
+    .nav-cart-count{
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -35px;
+        margin-left: -55px;
+        border-radius: 11px;
+        font-size: 14px;
+        background: red;
+        color: white;
+    }
 
-/* Keep submenu hidden initially */
+    /* Keep submenu hidden initially */
+    /* ---------- Submenu: elevated gift-shop style ---------- */
+
+/* Base panel */
 .nav-menu-submenu {
-    display: none;
-    position: absolute;
-    top: 100%; /* places it directly below the parent menu item */
-    left: 0;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-    list-style: none;
-    border-radius: 5px;
-    min-width: 150px;
-    z-index: 100;
+  display: block;                 /* keep in DOM for animation */
+  opacity: 0;                     /* hidden by default */
+  visibility: hidden;
+  transform: translateY(8px) scale(0.98);
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50% 0;              /* center under parent label */
+  background: linear-gradient(180deg, #ffffff 0%, #fff8ff 100%);
+  border: 1px solid rgba(122,64,182,0.18);
+  border-radius: 14px;
+  padding: 10px;
+  min-width: 220px;               /* wider, room for icons */
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.12),
+    0 2px 6px rgba(122,64,182,.10) inset; /* soft inner glow */
+  z-index: 100;
+  backdrop-filter: blur(6px);      /* subtle glass effect (supported browsers) */
 }
 
-/* Each submenu item styling */
-.nav-menu-submenu li {
-    padding: 8px 15px;
-    color: brown;
-    font-size: 16px;    
-    cursor: pointer;
-    transition: background 0.2s ease;
+/* Caret / pointer */
+.nav-menu-submenu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  translate: -50% 0;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  border-left: 1px solid rgba(122,64,182,0.18);
+  border-top: 1px solid rgba(122,64,182,0.18);
+  rotate: 45deg;
+  border-radius: 3px 0 0 0;
 }
 
-.nav-menu-submenu li:hover {
-    background-color: #f2f2f2;
-}
-
-/* Show submenu when hovering over Men */
+/* Reveal on hover of parent <li> */
 .nav-menu li:hover .nav-menu-submenu {
-    display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
 }
 
+/* Submenu items */
+.nav-menu-submenu li {
+  padding: 0;                     /* reset — we'll pad the link */
+  list-style: none;
+}
 
+/* Turn each link into a pretty row */
+.nav-menu-submenu li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #5b2a86;                 /* rich plum */
+  text-decoration: none !important;
+  transition: background .15s ease, transform .08s ease;
+  position: relative;
+}
+
+/* Cute leading dot “icon” (no image needed) */
+.nav-menu-submenu li a::before {
+  content: "🎁";                  /* change per category if you want */
+  font-size: 14px;
+  line-height: 1;
+  opacity: .9;
+}
+
+/* Hover state */
+.nav-menu-submenu li a:hover {
+  background: #f7f3ff;
+  transform: translateY(-1px);
+}
+
+/* Active/pressed */
+.nav-menu-submenu li a:active {
+  transform: translateY(0);
+}
+
+/* Divider between items (optional, subtle) */
+.nav-menu-submenu li + li a {
+  border-top: 1px dashed rgba(122,64,182,0.12);
+}
+
+/* Right-justified hint (e.g., “New”) if you ever add a <span> */
+.nav-menu-submenu li a span.hint {
+  margin-left: auto;
+  font-size: 12px;
+  color: #7a40b6;
+  background: #f3e8ff;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* ---------- Multi-column option (optional class) ---------- */
+/* Add class "nav--cols-2" to the UL if you want 2 columns for long lists */
+.nav-menu-submenu.nav--cols-2 {
+  column-count: 2;
+  column-gap: 8px;
+  min-width: 420px;
+  padding: 12px;
+}
+.nav-menu-submenu.nav--cols-2 li {
+  break-inside: avoid;
+}
+
+/* ---------- Small polish to top-level items ---------- */
+.nav-menu > li > a {
+  position: relative;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+.nav-menu > li:hover > a {
+  background: rgba(243,232,255,0.6);
+}
