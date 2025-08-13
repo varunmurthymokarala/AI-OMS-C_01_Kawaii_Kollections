@@ -15,7 +15,9 @@ const Navbar = () => {
     <div className='navbar'>
       <div className="nav-logo">
         <img src={logo} alt="" />
-        <p>Kawaii Kollections</p>
+        <li className="nav-logo-title" onClick={() => setMenu('KawaiiKollections')}>
+          <Link to="/">Kawaii Kollections</Link>
+        </li>
       </div>
 
       <SearchBox />
