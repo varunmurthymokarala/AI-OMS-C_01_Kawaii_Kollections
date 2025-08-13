@@ -25,6 +25,7 @@
 
 .carticon-product-icon{
     height: 62px;
+    cursor: pointer;
 }
 .cartitems-remove-icon{
     width: 15px;

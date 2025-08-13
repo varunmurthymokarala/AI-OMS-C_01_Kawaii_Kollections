@@ -2,10 +2,12 @@ import React, { useContext } from 'react'
 import './CartItems.css'
 import { ShopContext } from '../../Context/ShopContext';
 import remove_icon from '../Assets/cart_cross_icon.png';
+import { useNavigate } from 'react-router-dom';
 
 
 const CartItems = () => {
     const {getTotalCartAmount,all_product,cartItems,removeFromCart} = useContext(ShopContext);
+    const navigate = useNavigate();
   return (
     <div className='cartitems'>
         <div className="cartitems-format-main">
@@ -21,7 +23,7 @@ const CartItems = () => {
             if(cartItems[e.id]>0){
                 return <div>
                 <div className="cartitems-format cartitems-format-main">
-                        <img src={e.image} alt="" className='carticon-product-icon'/>
+                        <img src={e.image} alt="" className='carticon-product-icon' onClick={()=> navigate(`/product/${e.id}`)}/>
                         <p>{e.name}</p>
                         <p>${e.new_price}</p>
                         <button className='cartitems-quantity'>{cartItems[e.id]}</button>

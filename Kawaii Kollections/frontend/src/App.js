@@ -9,6 +9,7 @@ import Shop from './Pages/Shop';
 import Product from './Pages/Product';
 import Cart from './Pages/Cart';
 import Footer from './Components/Footer/Footer';
+import SearchPage from './Pages/SearchPage';
 /*
 import men_banner from './Components/Assets/banner_mens_2.png';
 import women_banner from './Components/Assets/banner_women_1.png';
@@ -30,12 +31,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Shop/>} />
           
-          <Route path="/mens" element={<Shopcategory category="men" />} />
-          <Route path="/womens" element={<Shopcategory category="women" />} />
-          <Route path="/kids" element={<Shopcategory  category="kid" />} />
-          <Route path="product" element={<Product/>} >
-            <Route path=':productId' element={<Product/>} />
-          </Route>
+          <Route path="/toys" element={<Shopcategory category="toys" />} />
+          <Route path="/accesories" element={<Shopcategory category="accesories" />} />
+          <Route path="/stationary" element={<Shopcategory  category="stationary" />} />
+
+           {/* NEW: subcategory paths (optional) */}
+          <Route path="/toys/:sub" element={<Shopcategory category="toys" />} />
+          <Route path="/accesories/:sub" element={<Shopcategory category="accesories" />} />
+          <Route path="/stationary/:sub" element={<Shopcategory category="stationary" />} />
+          
+          <Route path="/product/:productId" element={<Product />} />
+
+          <Route path="/search" element={<SearchPage />} />    
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<LoginSignup/>}/> 
         </Routes>
