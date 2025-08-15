@@ -3,9 +3,6 @@ import './Hero.css';
 import hand_icon from '../Assets/hand_icon.gif';
 import arrow_icon from '../Assets/arrow.png';
 
-import Model3D from './Model3D';
-
-// Your existing hero images (transparent background, 350x418)
 import hero_image1 from '../Assets/product_7.1.1.png';
 import hero_image2 from '../Assets/product_25.1.1.png';
 import hero_image3 from '../Assets/product_6.1.1.png';
@@ -21,7 +18,7 @@ const Hero = () => {
     // Change image every 3 seconds
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10500);
+    }, 2500);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -44,27 +41,13 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* RIGHT SIDE - new 3D gift box stage (CSS-only) */}
-      <div className="hero-right">
-        <div className="gift-stage">
-          {/* Wrapping the animated elements in a keyed node to replay CSS each cycle */}
-          <div className="gift-anim-cycle" key={currentIndex}>
-            {/* Decorative CSS box base + lid */}
-            <div className="gift-box" aria-hidden="true">
-              <div className="box-base"></div>
-                <div className="box-inner-front" aria-hidden="true"></div>
-              <div className="box-lid"></div>
-              <div className="box-shadow" aria-hidden="true"></div>
-            </div>
-
-            {/* Product slot rises out of the box and spins */}
-          
-            <div className="product-slot">
-                <Model3D url="../models/gift.glb" />
-            </div>
-          </div>
+       <div className="hero-right">
+            <img
+                src={images[currentIndex]} 
+                alt="sliderImages"
+                className="hero-slide-img"
+                 />
         </div>
-      </div>
     </div>
   );
 };
