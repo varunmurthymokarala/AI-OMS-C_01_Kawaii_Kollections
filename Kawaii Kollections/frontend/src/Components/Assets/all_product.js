@@ -243,7 +243,7 @@ let all_product = [
   },
   {
     id: 18,
-    name: "very adorable hug toy deddy bear",
+    name: "very adorable hug toy teddy bear",
     category: "accesories",
     subcategory: "jewels",
     image: p18_img,
